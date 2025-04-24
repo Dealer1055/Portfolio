@@ -1,11 +1,9 @@
 from django.contrib import admin
-from .models import MyModel
+from .models import Project
 
 # Register your models here.
-@admin.register(MyModel)
-
-class MyModelAdmin(admin.ModelAdmin):
-    list_display = ('field1', 'field2', 'field3')  # Replace with your model's fields
-    search_fields = ('field1', 'field2')  # Replace with searchable fields
-    list_filter = ('field3',)  # Replace with fields to filter by
-admin.site.register(MyModel)
+@admin.register(Project)
+class ProjectAdmin(admin.ModelAdmin):
+    list_display = ('title', 'technology', 'created_at')
+    search_fields = ('title', 'technology')
+    list_filter = ('technology', 'created_at')
